@@ -7,6 +7,8 @@ import DataTable from "react-data-table-component";
 
 import "./newEmployee.css";
 
+
+// Je crée la constante 
 const columns = [
     {
         name: "First Name",

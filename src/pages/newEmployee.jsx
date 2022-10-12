@@ -6,7 +6,7 @@ import Select from "react-select";
 import DatePicker from "react-datepicker"
 import './newEmployee.css'
 import "react-datepicker/dist/react-datepicker.css";
-import Modal from "../../node_modules/modalexp";
+import Modal from "../../node_modules/modalexp/dists/components/modal";
 
 
 function NewEmployeePage() {
@@ -308,9 +308,6 @@ function NewEmployeePage() {
 
         form.reset();
         setDisplayModal(true);
-
-        console.log(employees)
-
         dispatch(userStore([...employees, employee]));
 
 
@@ -401,7 +398,6 @@ function NewEmployeePage() {
             {displayModal && (
                 <Modal
                     title="Employee Created!"
-                    body="New employee created, you may now proceed to the employees list page"
                     showModal={setDisplayModal}
                 />
             )}
