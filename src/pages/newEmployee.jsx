@@ -280,7 +280,8 @@ function NewEmployeePage() {
     const [displayModal, setDisplayModal] = useState(false);
 
 
-    const employees = useSelector((state) => state.usersList.value);
+    const employees = useSelector((state) => state.usersList.value); //Récuperer les employees du store
+
 
     const saveEmployee = (e) => {
         e.preventDefault();
@@ -305,10 +306,9 @@ function NewEmployeePage() {
             state: stateSelection,
             zipCode: zipCode.value,
         };
-
         form.reset();
-        setDisplayModal(true);
-        dispatch(userStore([...employees, employee]));
+        setDisplayModal(true); // afficher le modal 
+        dispatch(userStore([...employees, employee])); // expédier les employees que y'avait et le nouvel employee
 
 
 

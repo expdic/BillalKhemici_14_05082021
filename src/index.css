@@ -1,6 +1,7 @@
 body {
 
   margin: 0;
+  overflow-x: hidden; 
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
@@ -46,8 +47,8 @@ footer {
 footer{
   margin-top: 5rem;
   background: #677627;
-  padding-left: 35rem ;
-  padding-right: 28.5rem;
+  padding-left: 25rem ;
+  padding-right: 25rem;
   padding-top: 3rem;
   color: white;
   font-family:sans-serif;

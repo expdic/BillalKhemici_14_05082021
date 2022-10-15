@@ -8,7 +8,7 @@ import DataTable from "react-data-table-component";
 import "./newEmployee.css";
 
 
-// Je crée la constante 
+// Je crée un tableau d'objets pour les columns du DataTable 
 const columns = [
     {
         name: "First Name",
@@ -58,18 +58,18 @@ const columns = [
 ];
 
 function EmployeesList() {
-    const employees = useSelector((state) => state.usersList.value);
-    const [employeesFiltered, setEmployeesFiltered] = useState([]);
+    const employees = useSelector((state) => state.usersList.value); // Récuperer les utilisateur du store 
+    const [employeesFiltered, setEmployeesFiltered] = useState([]); // Créer un tableau vide et une fonction pour remplir le tableau
 
     useEffect(() => {
-        if (employees !== null) {
-            setEmployeesFiltered(employees);
+        if (employees !== null) { // si dans le store il y a des employees 
+            setEmployeesFiltered(employees); // remplir le tableau avec les employees 
         }
     }, [employees, setEmployeesFiltered]);
 
     function handleSearchbarChange(event) {
-        if (event.target.value === "") {
-            return setEmployeesFiltered(employees);
+        if (event.target.value === "") { // si il y a rien dans le input 
+            return setEmployeesFiltered(employees); // laisser le tableau tel qu'il est avec tout les employees 
         }
 
         return setEmployeesFiltered(
@@ -105,6 +105,11 @@ function EmployeesList() {
 
     return (
         <div id="employee-div" className="container">
+            <div className="button-container">
+                <Link to="/" className="submit-button">
+                    Home
+                </Link>
+            </div>
             <h1>Current Employees</h1>
             <div>
                 Rechercher :{" "}
@@ -122,11 +127,7 @@ function EmployeesList() {
                 data={employeesFiltered}
                 pagination
             />
-            <div className="button-container">
-                <Link to="/" className="submit-button">
-                    Home
-                </Link>
-            </div>
+
         </div>
     );
 }
